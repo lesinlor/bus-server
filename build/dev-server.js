@@ -14,6 +14,9 @@ var webpackConfig = process.env.NODE_ENV === 'testing'
   ? require('./webpack.prod.conf')
   : require('./webpack.dev.conf')
 
+// api程序所需依赖
+var http = require('http');
+
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
 // automatically open browser, if not set will be false
@@ -49,6 +52,10 @@ compiler.plugin('compilation', function (compilation) {
   })
 })
 
+// api程序
+app.use('/api',require('../src/models/api.js'));
+
+
 // proxy api requests
 Object.keys(proxyTable).forEach(function (context) {
   var options = proxyTable[context]
@@ -75,7 +82,7 @@ app.use(staticPath, express.static('./static'))
 var uri = 'http://localhost:' + port
 
 devMiddleware.waitUntilValid(function () {
-  console.log('> Listening at ' + uri + '\n')
+  console.log('>>>> Listening at ' + uri + '\n')
 })
 
 module.exports = app.listen(port, function (err) {
