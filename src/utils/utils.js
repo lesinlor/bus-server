@@ -10,17 +10,11 @@ export default {
             // console.log(request.readyState)
             if (request.readyState == 4) {
                 var resp = request.responseText;
-                console.log(resp)
-                obj.success(resp);models
+                obj.success(resp);
             } else {
                 obj.error();
             }
         };
-
-        // request.onerror = function() {
-        //     obj.error();
-        //     console.log(3)
-        // };
 
         request.send();
     },

@@ -1,22 +1,25 @@
 <template>
     <div class="hello">
+        <h3>{{ busInfo.key_name }}</h3>
+        <h4>起点:{{ busInfo.front_name }}</h4>
+        <h4>终点:{{ busInfo.terminal_name }}</h4>
+        
         <li>
-            <ul v-for="list in result">{{ list.name }}</ul>
+            <ul v-for="item in busInfo.stationdes">{{ item.name }}</ul>
         </li>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'home',
+  name: 'station',
   data () {
     return {
-      result: [{
-        name: '车坊首末站公交站'
-      }, {
-        name: '淞泽家园七区公交站'
-      }]
+      busInfo: this.$store.state.busInfo
     }
+  },
+  created(){
+    console.log(this.$store.state.busInfo)
   }
 }
 </script>

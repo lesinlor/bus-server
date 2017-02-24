@@ -10,9 +10,9 @@ router.get('/',function(req,res){
 })
 
 router.get('/bus/:city/:bus',function(req,res){
-	var url = domain + 'busline?key=' + key + '&city=' + encodeURI(req.params.city) + '&bus=' + req.params.bus;
-	var html = '';
+	var url = domain + 'busline?key=' + key + '&city=' + encodeURI(req.params.city) + '&bus=' + encodeURI(req.params.bus);
 	console.log(url);
+	var html = '';
 	http.get(url, function(_req,_res){
 		_req.on('data',function(_data){
 			html += _data;
@@ -25,8 +25,8 @@ router.get('/bus/:city/:bus',function(req,res){
 
 router.get('/station/:city/:station',function(req,res){
 	var url = domain + 'station?key=' + key + '&city=' + encodeURI(req.params.city) + '&station=' + encodeURI(req.params.station);
-	var html = '';
 	console.log(url);
+	var html = '';
 	http.get(url, function(_req,_res){
 		_req.on('data',function(_data){
 			html += _data;

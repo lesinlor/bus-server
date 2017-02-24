@@ -12,7 +12,7 @@
 import util from '../utils/utils.js'
 
 export default {
-    name: 'home',
+    name: 'busquery',
     data () {
         return {
             city: '',
@@ -21,10 +21,19 @@ export default {
     },
     methods: {
         submit: function(){
-            var url = util.api + 'busline?key=8229e8e1c79890c2606c502e72c48fd4&city=苏州&%20bus=156'
+            this.$store.commit('setCity',this.city);
+            var _this = this;//保存this变量
+            if(this.city.trim() == '' || this.bus.trim() == '' ){
+                alert('请完善信息');
+                return;
+            }
+            var url = '/api/bus/' + this.city + '/' + this.bus;
             util.get({
                 url: url,
                 success: function(data){
+                    data=JSON.parse(data)
+                    _this.$store.commit('setBusList',data);
+                    _this.$router.push('/bus');
                 },
                 error: function(){
                 }
