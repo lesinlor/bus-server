@@ -12,11 +12,10 @@ npm install
 npm run dev
 
 # build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+npm run build(the api is in the Express server,bulid can't work as well)
 
 ```
+> now the interactive and function is done.UI is unfinish.
+
 
 Thanks for [juhe.cn](https://www.juhe.cn/) offer the api for free.
