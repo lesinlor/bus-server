@@ -40,9 +40,9 @@ export default {
                 }
             })
         },
-        ...mapMutations([
-        	'setBusList'
-        ])
+        // ...mapMutations([
+        // 	'setBusList'
+        // ])
     }
 }
 </script>

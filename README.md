@@ -12,7 +12,7 @@ npm install
 npm run dev
 
 # build for production with minification
-npm run build(the api is in the Express server,bulid can't work as well)
+npm run build(the api is in the Express server,bulid can't work as well.)
 
 ```
 > now the interactive and function is done.UI is unfinish.
